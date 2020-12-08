@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zhy="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorMajor"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_manual_q"
+            style="@style/RoundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/manual_spray_strong"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/config_color_50_blue" />
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_manual_r"
+            style="@style/RoundButton"
+            android:layout_width="120dp"
+            android:text="@string/manual_spray_weak"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            android:layout_height="50dp"
+            app:btnSolidColor="@color/config_color_50_blue"
+            />
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_auto_q"
+            style="@style/RoundButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/walking_strong"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/config_color_50_blue" />
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_auto_r"
+            style="@style/RoundButton"
+            android:layout_width="120dp"
+            android:text="@string/walking_spray_weak"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            android:layout_height="50dp"
+            app:btnSolidColor="@color/config_color_50_blue"
+            />
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_set_disin_cmd_close"
+            style="@style/RoundButton"
+            android:text="@string/close_spray"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            app:btnSolidColor="@color/colorMajor"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"></View>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp">
+        <ezy.ui.view.RoundButton
+            android:visibility="visible"
+            android:id="@+id/bt_set_disin_cmd_pump"
+            style="@style/RoundButton"
+            android:text="方向"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            app:btnSolidColor="@color/colorMajor"
+            />
+
+
+        <ezy.ui.view.RoundButton
+            android:visibility="visible"
+            android:id="@+id/bt_loop_time"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="循环"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/colorMajor" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"></View>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_set_disin_cmd_charge"
+            style="@style/RoundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/charging_point_open"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/colorMajor" />
+
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_set_disin_cmd_charge_close"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/charging_point_close"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/colorMajor" />
+
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_recharging_yes"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="回充"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/colorMajor" />
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_recharging_no"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="不回充"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@color/colorMajor" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"></View>
+    <FrameLayout
+        android:visibility="gone"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/NormalText"
+            android:text="@string/walking_route"/>
+        <com.suke.widget.SwitchButton
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical|right"/>
+    </FrameLayout>
+    <View
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"></View>
+
+</LinearLayout>

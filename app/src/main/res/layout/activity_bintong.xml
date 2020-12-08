@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center">
+
+        <com.linfd.scri.disinfectrobot.view.recyclerviewpoll.AutoPollRecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"></com.linfd.scri.disinfectrobot.view.recyclerviewpoll.AutoPollRecyclerView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingBottom="30dp">
+
+        <FrameLayout
+            android:id="@+id/fl_power"
+            android:layout_width="140dp"
+            android:layout_height="match_parent">
+
+            <com.linfd.scri.disinfectrobot.view.battery.PowerConsumptionRankingsBatteryView
+                android:id="@+id/mPowerConsumptionRankingsBatteryView"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="电量"
+                android:textColor="@color/white"></TextView>
+
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/fl_power"
+            android:orientation="vertical">
+
+            <cn.iwgang.countdownview.CountdownView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/countdown_view"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
+                app:isHideTimeBackground="false"
+                app:isShowDay="false"
+                app:isShowHour="true"
+                app:isShowMillisecond="false"
+                app:isShowMinute="true"
+                app:isShowSecond="true"
+                app:isShowTimeBgDivisionLine="false"
+                app:suffixGravity="center"
+                app:suffixTextColor="#000000"
+                app:suffixTextSize="20sp"
+                app:timeBgColor="#FF5000"
+                app:timeTextColor="#FFFFFF"
+                app:timeTextSize="50sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="bottom"
+                    android:text="线速度："
+                    android:textColor="@color/colorMajor" />
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pb_linear_velocity"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:max="100"
+                    android:progress="18"
+                    android:progressDrawable="@drawable/progressbar_bg" />
+                <TextView
+                    android:id="@+id/tv_linear_velocity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:layout_gravity="center"
+                    ></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="bottom"
+                    android:text="角速度："
+                    android:textColor="@color/colorMajor" />
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pb_angular_velocity"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:max="100"
+                    android:progress="18"
+                    android:progressDrawable="@drawable/progressbar_bg" />
+                <TextView
+                    android:id="@+id/tv_angular_velocity"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_gravity="center"
+                    ></TextView>
+            </LinearLayout>
+
+            <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+                android:layout_marginTop="40dp"
+                android:id="@+id/status_layout_spary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:showName="@string/spray_intensity"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+
+            <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+                android:id="@+id/status_layout_box_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:showName="@string/reservoir_level"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/ll_control"
+            android:background="@color/config_color_gray_1"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_control"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:orientation="vertical">
+
+            <ezy.ui.view.RoundButton
+                android:id="@+id/bt_set_action_cmd_stop"
+                style="@style/RoundButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:text="@string/stop"
+                app:btnCornerRadius="stadium"
+                app:btnPressedRatio="0.7"
+                app:btnSolidColor="@android:color/holo_red_light" />
+
+            <ezy.ui.view.RoundButton
+                android:id="@+id/bt_manual"
+                style="@style/RoundButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:text="@string/disinfection"
+                android:visibility="gone"
+                app:btnCornerRadius="stadium"
+                app:btnPressedRatio="0.7"
+                app:btnSolidColor="@color/colorMajor" />
+
+            <ezy.ui.view.RoundButton
+                android:id="@+id/tv_set_navi_mode_build"
+                style="@style/RoundButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_weight="0"
+                android:text="建图"
+                android:visibility="visible"
+                app:btnCornerRadius="stadium"
+                app:btnPressedRatio="0.7"
+                app:btnSolidColor="@color/colorMajor" />
+            <ezy.ui.view.RoundButton
+                android:id="@+id/tv_set_navi_mode_finish"
+                style="@style/RoundButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_weight="0"
+                android:text="完成"
+                android:visibility="gone"
+                app:btnCornerRadius="stadium"
+                app:btnPressedRatio="0.7"
+                app:btnSolidColor="@color/colorMajor" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ezy.ui.view.RoundButton
+                    android:id="@+id/tv_auto_q"
+                    style="@style/RoundButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="强喷雾"
+                    app:btnCornerRadius="10dp"
+                    app:btnPressedRatio="0.5"
+                    app:btnSolidColor="@color/config_color_50_blue" />
+
+                <ezy.ui.view.RoundButton
+                    android:id="@+id/tv_auto_r"
+                    style="@style/RoundButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="弱喷雾"
+                    app:btnCornerRadius="10dp"
+                    app:btnPressedRatio="0.5"
+                    app:btnSolidColor="@color/config_color_50_blue" />
+
+                <ezy.ui.view.RoundButton
+                    android:id="@+id/bt_set_disin_cmd_close"
+                    style="@style/RoundButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="@string/close_spray"
+                    android:textSize="18sp"
+                    app:btnCornerRadius="10dp"
+                    app:btnPressedRatio="0.5"
+                    app:btnSolidColor="@color/colorMajor" />
+            </LinearLayout>
+            <ezy.ui.view.RoundButton
+                android:id="@+id/bt_set_disin_cmd_pump"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/control"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/colorMajor"></ezy.ui.view.RoundButton>
+            <ezy.ui.view.RoundButton
+                android:id="@+id/set_navi_mode_loc"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/colorMajor"></ezy.ui.view.RoundButton>
+            <ezy.ui.view.RoundButton
+                android:id="@+id/bt_set_base_cmd_power_off"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/turn_off"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@android:color/holo_red_light"></ezy.ui.view.RoundButton>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

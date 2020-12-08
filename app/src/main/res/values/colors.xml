@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1B88EE</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="colorMajor">@color/config_color_50_blue</color>//真正主题色
+    <color name="color_green">#07C607</color>
+
+    <color name="lowerPowerColor">#ff4d4d</color>
+    <color name="onlineColor">#00d68d</color>
+    <color name="offlineColor">#bfbfbf</color>
+</resources>

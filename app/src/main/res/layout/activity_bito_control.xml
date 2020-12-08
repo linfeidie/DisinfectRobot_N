@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorPrimary" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/bt_hanxin_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动韩信"></Button>
+
+            <Button
+                android:id="@+id/bt_hanxin_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关闭韩信"></Button>
+
+            <Button
+                android:id="@+id/bt_robot_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册机器⼈"></Button>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/bt_get_all_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询所有任务信息"></Button>
+            <Button
+                android:id="@+id/bt_get_repeat_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重复任务"></Button>
+            <Button
+                android:id="@+id/bt_get_charge_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充电任务"></Button>
+            <Button
+                android:id="@+id/bt_switch_charging_mode_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充电模式 手动"></Button>
+            <Button
+                android:id="@+id/bt_switch_charging_mode_auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充电模式 自动"></Button>
+            <Button
+                android:id="@+id/bt_cancel_task_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消行走任务"></Button>
+            <Button
+                android:id="@+id/bt_cancel_task_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消充电任务"></Button>
+            <Button
+                android:id="@+id/bt_get_hanxin_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取韩信状态"></Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_get_hanxin_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="1111111"></TextView>
+            <Button
+                android:id="@+id/bt_get_error_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询所有故障信息"></Button>
+
+            <Button
+                android:id="@+id/bt_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录"></Button>
+
+            <Button
+                android:id="@+id/bt_changePwb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改密码"></Button>
+
+            <Button
+                android:id="@+id/bt_reset_agents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重置机器人"></Button>
+
+            <Button
+                android:id="@+id/bt_robot_unregister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注销机器人"></Button>
+
+            <Button
+                android:id="@+id/bt_get_agents_registerable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询所有在线机器⼈是否可注册"></Button>
+            <Button
+                android:id="@+id/bt_get_robot_perform_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询正在执⾏的任务-序列号"></Button>
+            <Button
+                android:id="@+id/bt_one_key_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一键开启"></Button>
+
+            <Button
+                android:id="@+id/bt_charging_stations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询所有⾃动充电桩信息"></Button>
+            <Button
+                android:id="@+id/bt_cancel_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消所有任务"></Button>
+            <Button
+                android:id="@+id/bt_pause_robot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂停机器人"></Button>
+            <Button
+                android:id="@+id/bt_resume_robot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恢复机器人"></Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_get_error_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="1111111"></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical">
+
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorPrimary" />
+    <LinearLayout
+        android:id="@+id/ll_left"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical">
+
+        <cn.iwgang.countdownview.CountdownView
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/countdown_view"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            app:isHideTimeBackground="false"
+            app:isShowDay="false"
+            app:isShowHour="true"
+            app:isShowMillisecond="false"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:isShowTimeBgDivisionLine="false"
+            app:suffixGravity="center"
+            app:suffixTextColor="#000000"
+            app:suffixTextSize="20sp"
+            app:timeBgColor="#FF5000"
+            app:timeTextColor="#FFFFFF"
+            app:timeTextSize="50sp" />
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="35dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="22sp"
+                android:gravity="bottom"
+                android:text="线速度："
+                 />
+
+            <TextView
+                android:id="@+id/tv_linear_velocity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:layout_gravity="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="bottom"
+                android:text="角速度："
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_angular_velocity"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text=""
+                android:layout_gravity="center"
+                ></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_current_time"
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_get_hanxin_status"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:textSize="22sp"
+                    android:text="系统:关闭"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_robot_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="22sp"
+                    android:text="未注册"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_get_robot_perform_task"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="当前任务:"></TextView>
+            <TextView
+                android:id="@+id/tv_robot_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="充电模式："></TextView>
+            <TextView
+                android:id="@+id/tv_pre_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="剩余任务:0"></TextView>
+            <TextView
+                android:id="@+id/tv_disin_time"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="消毒时间:"></TextView>
+            <TextView
+                android:id="@+id/tv_power"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="电量:"
+                ></TextView>
+
+        </LinearLayout>
+        <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+            android:layout_marginLeft="35dp"
+            android:id="@+id/status_layout_spary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showName="@string/spray_intensity"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+
+        <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+            android:layout_marginLeft="35dp"
+            android:id="@+id/status_layout_box_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showName="@string/reservoir_level"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+        <FrameLayout
+            android:id="@+id/fl_power"
+            android:layout_width="140dp"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <com.linfd.scri.disinfectrobot.view.battery.PowerConsumptionRankingsBatteryView
+                android:id="@+id/mPowerConsumptionRankingsBatteryView"
+                android:visibility="gone"
+                android:layout_width="70dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center" />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/robot1"
+        android:layout_toRightOf="@id/ll_left"
+        android:layout_toLeftOf="@id/vp_grid_view">
+        <TextView
+            android:id="@+id/tv_emergency"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_scram"></TextView>
+
+        <TextView
+            android:id="@+id/tv_exception"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/icon_warning"
+            ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/switch_button"
+                android:layout_alignTop="@+id/switch_button"
+                android:text="锁屏"></TextView>
+
+        <com.suke.widget.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            app:sb_checked_color="@color/colorMajor" />
+    </RelativeLayout>
+
+    <fj.mtsortbutton.lib.DynamicSoreView
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:id="@+id/dynamicSoreView"
+        android:background="#ffffff"
+        app:SoreRadioSelect="@drawable/radio1"
+        app:SoreRadioUnselected="@drawable/radio2"
+        app:SoreNumber="16"
+        app:SoreDistance="20"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"/>
+
+    <com.wihaohao.PageGridView
+        android:id="@+id/vp_grid_view"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:visibility="invisible"
+        android:layout_alignParentRight="true"
+        app:isShowIndicator="true"
+        app:itemView="@layout/my_item_view"
+        app:numColumns="3"
+        app:pageSize="15"
+        app:selectedIndicator="@drawable/radio1"
+        app:unSelectedIndicator="@drawable/radio2"
+        app:indicatorPaddingTop="0dp"
+        />
+</RelativeLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorMajor"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 这个是在容器中央的 -->
+        <ezy.ui.view.RoundButton
+            android:id="@+id/img1"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="0"
+            android:text="一键启动"
+            android:visibility="invisible"
+            app:btnCornerRadius="stadium"
+            app:btnPressedRatio="0.7"
+            app:btnSolidColor="@color/colorMajor" />
+
+
+        <!-- 在中间图片的左边 -->
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_leftward"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/img1"
+            android:layout_weight="0"
+            android:text="@string/left"
+            app:btnCornerRadius="stadium"
+            app:btnPressedRatio="0.7"
+            app:btnSolidColor="@color/colorMajor" />
+
+
+        <!-- 在中间图片的右边 -->
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_rightward"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/img1"
+            android:layout_weight="0"
+            android:text="@string/right"
+            app:btnCornerRadius="stadium"
+            app:btnPressedRatio="0.7"
+            app:btnSolidColor="@color/colorMajor" />
+
+        <!-- 在中间图片的上面-->
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_forward"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@id/img1"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0"
+            android:text="@string/forward"
+            app:btnCornerRadius="stadium"
+            app:btnPressedRatio="0.7"
+            app:btnSolidColor="@color/colorMajor" />
+
+        <!-- 在中间图片的下面 -->
+        <ezy.ui.view.RoundButton
+            android:id="@+id/tv_backward"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/img1"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0"
+            android:text="@string/backward"
+            app:btnCornerRadius="stadium"
+            app:btnPressedRatio="0.7"
+            app:btnSolidColor="@color/colorMajor" />
+
+        <ezy.ui.view.RoundButton
+            android:id="@+id/bt_set_base_cmd_power_off"
+            android:visibility="gone"
+            style="@style/RoundButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:text="@string/turn_off"
+            android:textSize="18sp"
+            app:btnCornerRadius="10dp"
+            app:btnPressedRatio="0.5"
+            app:btnSolidColor="@android:color/holo_red_light" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/tv_switch_open"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="解锁"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/tv_switch_close"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="加锁"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/set_robot_wifi_open"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="打开热点"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/set_robot_wifi_close"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="关闭热点"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/set_robot_wifi_ap_open"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="连接AP"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/set_robot_wifi_ap_close"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="断开AP"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <ezy.ui.view.RoundButton
+                android:visibility="gone"
+                android:id="@+id/lock_screen"
+                style="@style/RoundButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="锁屏"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.5"
+                app:btnSolidColor="@color/config_color_50_blue" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

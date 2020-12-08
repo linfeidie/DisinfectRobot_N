@@ -1,0 +1,22 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="88dp"
+    android:layout_height="wrap_content">
+    <!--android:background="@drawable/tag_bg"-->
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_marginTop="7dp"
+        android:layout_width="80dp"
+        android:gravity="center"
+        android:layout_height="32dp"
+        android:text="我是唯爱"
+        android:textSize="13sp"
+        android:textColor="@color/colorPrimary">
+    </TextView>
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_alignParentRight="true"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        />
+</RelativeLayout>

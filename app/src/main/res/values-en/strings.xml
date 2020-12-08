@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Intelligent mobile disinfection robot</string>
+    <string name="spray">spray</string>
+    <string name="close">close</string>
+    <string name="weak">weak</string>
+    <string name="strong">strong</string>
+    <string name="running_peed">running peed</string>
+    <string name="fast">fast</string>
+    <string name="middle">middle</string>
+    <string name="slow">slow</string>
+    <string name="spray_fan">spray fan</string>
+    <string name="operation_mode">operation mode</string>
+    <string name="autonomous_navigation">autonomous navigation</string>
+    <string name="cruising_cuise">cruising cuise</string>
+    <string name="automatic_recharge">automatic recharge</string>
+    <string name="walking_route">walking route</string>
+    <string name="appointment_task">appointment task</string>
+    <string name="add_appointment_task">add appointment task</string>
+    <string name="Is_it_done">is it done？</string>
+    <string name="set_the_initial_position">set the initial position</string>
+    <string name="long_press_to_set_the_tracing_point">long press to set the tracing point</string>
+    <string name="tracing_points_to_complete">tracing points to complete</string>
+    <string name="turn_it_off">turn it off</string>
+    <string name="turn_it_on">turn_it_on</string>
+    <string name="please_select_cruise_mode">please select cruise mode</string>
+    <string name="manual_point_cruise">manual point cruise</string>
+    <string name="automatic_fixed_point_cruise">automatic fixed point cruise</string>
+    <string name="determine">determine</string>
+    <string name="setting">setting</string>
+    <string name="map">map</string>
+    <string name="fixed_point_cruise_map">fixed point cruise map</string>
+    <string name="sure_the_map_is_complete">sure the map is complete</string>
+    <string name="cancel">cancel</string>
+    <string name="control">control</string>
+    <string name="autonomy">autonomy</string>
+    <string name="manual">manual</string>
+    <string name="spray_intensity">Spray intensity</string>
+    <string name="atomizer_level">Atomizer level</string>
+    <string name="reservoir_level">Reservoir level</string>
+    <string name="pump">pump</string>
+    <string name="drainage">drainage</string>
+    <string name="forward">forward</string>
+    <string name="backward">backward</string>
+    <string name="right">right</string>
+    <string name="left">left</string>
+    <string name="electric_quantity">battery</string>
+    <string name="tips1">Use last trace point?</string>
+    <string name="redraw_point">Redraw point</string>
+    <string name="sure">sure</string>
+    <string name="start">start</string>
+    <string name="tips2">no historical trace point ,select trace point</string>
+    <string name="suspend">suspend</string>
+    <string name="resume">resume</string>
+    <string name="stop">stop</string>
+    <string name="tips3">move the robot near the charging post</string>
+    <string name="tips4">Looking for charging point...</string>
+    <string name="tips5">be sure to move the robot near the charging post</string>
+    <string name="tracing_point">tracing point</string>
+    <string name="please_trace">Please trace it</string>
+    <string name="tips6">Are you sure pushed the robot near the charging post?</string>
+    <string name="tips7">got the charging post. We can trace it</string>
+    <string name="disinfection">Fixed point</string>
+    <string name="manual_spray_strong">spray</string>
+    <string name="manual_spray_weak">spray weak</string>
+    <string name="walking_strong">auto spray</string>
+    <string name="walking_spray_weak">walking weak</string>
+    <string name="turn_off">power off</string>
+    <string name="close_spray">close spray</string>
+    <string name="sure_turn_off">sure turn off?</string>
+    <string name="charging_point_open">charge on</string>
+    <string name="charging_point_close">charge off</string>
+    <string name="reset_map">reset map</string>
+    <string name="point">point</string>
+    <string name="finish"> finish</string>
+    <string name="quit">exit</string>
+
+    <string-array name="make_map">
+        <item>start</item>
+        <item>Looking for charging posts</item>
+        <item>Start tracing point</item>
+        <item>Return to the charging post</item>、
+        <item>complete</item>
+    </string-array>
+</resources>

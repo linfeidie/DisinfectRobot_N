@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">智能移动消毒机器人</string>
+    <string name="spray">喷雾</string>
+    <string name="close">关</string>
+    <string name="weak">弱</string>
+    <string name="strong">强</string>
+    <string name="running_peed">运行速度</string>
+    <string name="fast">快</string>
+    <string name="middle">中</string>
+    <string name="slow">慢</string>
+    <string name="spray_fan">喷雾风扇</string>
+    <string name="operation_mode">运行模式</string>
+    <string name="autonomous_navigation">自主导航</string>
+    <string name="cruising_cuise">定点巡航</string>
+    <string name="automatic_recharge">自动回充</string>
+    <string name="walking_route">是否开启行走路线</string>
+    <string name="appointment_task">预约任务</string>
+    <string name="add_appointment_task">添加预约任务</string>
+    <string name="Is_it_done">点击建图完成</string>
+    <string name="set_the_initial_position">设置初始位置</string>
+    <string name="long_press_to_set_the_tracing_point">长按设置描点</string>
+    <string name="tracing_points_to_complete">完成</string>
+    <string name="turn_it_off">一键关机</string>
+    <string name="turn_it_on">一键开机</string>
+    <string name="please_select_cruise_mode">请选择巡航方式</string>
+    <string name="manual_point_cruise">手动定点巡航</string>
+    <string name="automatic_fixed_point_cruise">自动定点巡航</string>
+    <string name="determine">确定</string>
+    <string name="setting">设置</string>
+    <string name="map">地图</string>
+    <string name="fixed_point_cruise_map">定点巡航地图</string>
+    <string name="sure_the_map_is_complete">是否确定地图完成</string>
+    <string name="cancel">取消</string>
+    <string name="control">控制</string>
+    <string name="autonomy">自主巡航</string>
+    <string name="manual">手动巡航</string>
+    <string name="spray_intensity">喷雾强度</string>
+    <string name="atomizer_level">雾化器液位</string>
+    <string name="reservoir_level">蓄水液位</string>
+    <string name="pump">抽水</string>
+    <string name="drainage">排水</string>
+    <string name="forward">前进</string>
+    <string name="backward">后退</string>
+    <string name="right">右转</string>
+    <string name="left">左转</string>
+    <string name="electric_quantity">电量</string>
+    <string name="tips1">使用上一次的描点?</string>
+    <string name="redraw_point">重新描点</string>
+    <string name="sure">好的</string>
+    <string name="start">启动了</string>
+    <string name="tips2">没有历史描点信息,请选择描点</string>
+    <string name="suspend">任务暂停</string>
+    <string name="resume">任务恢复</string>
+    <string name="stop">任务停止</string>
+    <string name="tips3">请把机器人移到充电桩附近</string>
+    <string name="tips4">寻找充电桩...</string>
+    <string name="tips5">请务必把机器人移到充电桩附近</string>
+    <string name="tracing_point">描点</string>
+    <string name="please_trace">请描点</string>
+    <string name="tips6">是否确定已把机器人推至充电桩附近?</string>
+    <string name="tips7">找到充电桩来啦,可以描点了</string>
+    <string name="disinfection">定点消毒</string>
+    <string name="manual_spray_strong">手动喷雾_强</string>
+    <string name="manual_spray_weak">手动喷雾_弱</string>
+    <string name="walking_strong">行走喷雾_强</string>
+    <string name="walking_spray_weak">行走喷雾_弱</string>
+    <string name="turn_off">关机</string>
+    <string name="close_spray">关喷雾</string>
+    <string name="sure_turn_off">确定关机</string>
+    <string name="charging_point_open">充电桩_开</string>
+    <string name="charging_point_close">充电桩_关</string>
+    <string name="reset_map">重置地图</string>
+    <string name="point">描点</string>
+    <string name="finish">描点完成</string>
+    <string name="quit">退出</string>
+
+    <string-array name="make_map">
+        <item>开始</item>
+        <item>正在寻找充电桩</item>
+        <item>开始描点</item>
+        <item>回到充电桩附近</item>、
+        <item>完成</item>
+    </string-array>
+</resources>

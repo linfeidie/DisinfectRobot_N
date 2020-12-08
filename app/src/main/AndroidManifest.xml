@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.linfd.scri.disinfectrobot">
+    <!-- 访问网络，进行地图相关业务数据请求，包括地图数据，路线规划，POI检索等 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".BaseApplication"
+        >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask">
+
+        </activity>
+        <activity android:name=".SettingActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".MaxsSpeedSetActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".TemperatureActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".ApmtActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".DrawableMapActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".WalkingDirectionActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".LiftMainActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".LockScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="orientation|keyboardHidden"></activity>
+        <activity android:name=".BinTongActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".BinTongActivity2"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BinTongActivity2AGV"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".BitoControlActivity">
+
+        </activity>
+        <activity android:name=".test.TestActivity">
+
+        </activity>
+        <activity android:name=".ErrorShowActivity"></activity>
+        <activity android:name=".BitoSettingActivity"></activity>
+        <receiver
+            android:name=".BootBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.stx.xhb.commontitlebar.CustomTitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:titlebar_bg_color="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.linfd.scri.disinfectrobot.view.PinchImageView
+                    android:id="@+id/iv_bitmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_no_map"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical">
+
+                    <ezy.ui.view.RoundButton
+                        style="@style/RoundButton"
+                        android:id="@+id/bt_set"
+                        android:text="@string/control"
+                        app:btnCornerRadius="10dp"
+                        app:btnPressedRatio="0.5"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:textSize="18sp"
+                        app:btnSolidColor="@color/colorMajor"
+                        />
+                    <ezy.ui.view.RoundButton
+                        style="@style/RoundButton"
+                        android:id="@+id/tv_set_navi_mode_build"
+                        android:text="SLAM"
+                        app:btnCornerRadius="10dp"
+                        app:btnPressedRatio="0.5"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:textSize="18sp"
+                        app:btnSolidColor="@color/colorMajor"
+                        />
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ezy.ui.view.RoundButton
+                    android:visibility="visible"
+                    android:id="@+id/bt_manual"
+                    style="@style/RoundButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:text="@string/disinfection"
+                    app:btnCornerRadius="stadium"
+                    app:btnPressedRatio="0.7"
+                    app:btnSolidColor="@color/colorMajor"/>
+
+                <ezy.ui.view.RoundButton
+                    android:visibility="gone"
+                    android:id="@+id/bt_set_action_cmd_pause"
+                    style="@style/RoundButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:text="@string/suspend"
+                    app:btnCornerRadius="stadium"
+                    app:btnPressedRatio="0.7"
+                    app:btnSolidColor="@android:color/holo_orange_light"/>
+                <ezy.ui.view.RoundButton
+                    android:visibility="gone"
+                    android:id="@+id/bt_set_action_cmd_resume"
+                    style="@style/RoundButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:text="@string/resume"
+                    app:btnCornerRadius="stadium"
+                    app:btnPressedRatio="0.7"
+                    app:btnSolidColor="@android:color/holo_green_light"/>
+                <ezy.ui.view.RoundButton
+                    android:visibility="gone"
+                    android:id="@+id/bt_set_action_cmd_stop"
+                    style="@style/RoundButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:text="@string/stop"
+                    app:btnCornerRadius="stadium"
+                    app:btnPressedRatio="0.7"
+                    app:btnSolidColor="@android:color/holo_red_light"/>
+                <ezy.ui.view.RoundButton
+                    android:visibility="gone"
+                    android:id="@+id/bt_set_charge_power_action"
+                    style="@style/RoundButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:text="回充"
+                    app:btnCornerRadius="stadium"
+                    app:btnPressedRatio="0.7"
+                    app:btnSolidColor="@android:color/holo_red_light"/>
+
+            </LinearLayout>
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/countdown_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    app:isHideTimeBackground="false"
+                    app:isShowDay="false"
+                    app:isShowHour="true"
+                    app:isShowMillisecond="false"
+                    app:isShowMinute="true"
+                    app:isShowSecond="true"
+                    app:isShowTimeBgDivisionLine="false"
+                    app:suffixGravity="center"
+                    app:suffixTextColor="#000000"
+                    app:suffixTextSize="20sp"
+                    app:timeBgColor="#FF5000"
+                    app:timeTextColor="#FFFFFF"
+                    app:timeTextSize="20sp" />
+
+
+           <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+               android:id="@+id/status_layout_spary"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:showName="@string/spray_intensity"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+            <com.linfd.scri.disinfectrobot.view.MyStatusLayout
+                android:id="@+id/status_layout_box_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:showName="@string/reservoir_level"></com.linfd.scri.disinfectrobot.view.MyStatusLayout>
+
+
+            <TextView
+                android:id="@+id/run_state"
+                android:visibility="visible"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorMajor"
+                 />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/NormalText"
+                    android:drawableLeft="@mipmap/ic_setting_pace"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:src="@mipmap/ic_right" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"></View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+                <com.linfd.scri.disinfectrobot.view.WaterWaveView
+                    android:id="@+id/wave_view_electric"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:waveName="@string/electric_quantity"
+                    ></com.linfd.scri.disinfectrobot.view.WaterWaveView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
