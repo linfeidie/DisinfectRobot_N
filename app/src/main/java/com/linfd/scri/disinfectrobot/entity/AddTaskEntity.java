@@ -7,13 +7,13 @@ import java.util.List;
 * */
 public class AddTaskEntity extends BaseEntity {
 
-    private List<Integer> id;
+    private List<Integer> data;
 
-    public List<Integer> getId() {
-        return id;
+    public List<Integer> getData() {
+        return data;
     }
 
-    public void setId(List<Integer> id) {
-        this.id = id;
+    public void setId(List<Integer> data) {
+        this.data = data;
     }
 }

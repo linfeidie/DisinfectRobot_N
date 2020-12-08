@@ -15,7 +15,6 @@ import com.linfd.scri.disinfectrobot.Contanst;
 import com.linfd.scri.disinfectrobot.tools.Tools;
 import com.linfd.scri.disinfectrobot.entity.AddTaskEntity;
 import com.linfd.scri.disinfectrobot.entity.BaseEntity;
-import com.linfd.scri.disinfectrobot.entity.BaseEntity2;
 import com.linfd.scri.disinfectrobot.entity.BitoLoginEntity;
 import com.linfd.scri.disinfectrobot.entity.CancelTaskEntity;
 import com.linfd.scri.disinfectrobot.entity.CancelTasksEntity;
@@ -163,7 +162,7 @@ public class HttpRequestManager {
         mMyOkHttp.get()
                 .url(url)
                 .tag(this)
-                .enqueue(new GsonResponseHandler<BaseEntity2>() {
+                .enqueue(new GsonResponseHandler<BaseEntity>() {
 
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
@@ -171,7 +170,7 @@ public class HttpRequestManager {
                     }
 
                     @Override
-                    public void onSuccess(int statusCode, BaseEntity2 response) {
+                    public void onSuccess(int statusCode, BaseEntity response) {
 
                         httpCallbackEntity.onSuccess((T) response);
 
@@ -296,7 +295,7 @@ public class HttpRequestManager {
         mMyOkHttp.get()
                 .url(url)
                 .tag(this)
-                .enqueue(new GsonResponseHandler<BaseEntity2>() {
+                .enqueue(new GsonResponseHandler<BaseEntity>() {
 
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
@@ -307,7 +306,7 @@ public class HttpRequestManager {
                     }
 
                     @Override
-                    public void onSuccess(int statusCode, BaseEntity2 response) {
+                    public void onSuccess(int statusCode, BaseEntity response) {
 
                         if (httpCallbackEntity != null){
                             httpCallbackEntity.onSuccess((T) response);
@@ -887,7 +886,7 @@ public class HttpRequestManager {
         mMyOkHttp.put()
                 .url(url)
                 .tag(this)
-                .enqueue(new GsonResponseHandler<BaseEntity2>() {
+                .enqueue(new GsonResponseHandler<BaseEntity>() {
 
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
@@ -895,7 +894,7 @@ public class HttpRequestManager {
                     }
 
                     @Override
-                    public void onSuccess(int statusCode, BaseEntity2 response) {
+                    public void onSuccess(int statusCode, BaseEntity response) {
 
                         httpCallbackEntity.onSuccess((T) response);
                     }

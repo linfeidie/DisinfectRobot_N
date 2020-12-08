@@ -6,7 +6,7 @@ import com.linfd.scri.disinfectrobot.entity.GetMapParamCallbackEntity;
 
 
 public class Contanst {
-    //192.168.5.130  轻载
+    //192.168.5.130  轻载 192.168.2.119(轻载无线)
     public static  String map_time ; //192.168.1.101（1009） 连接网线  "127.0.0.1"  192.168.2.103 是网络地址  10.42.0.1
     //1.0是有线网段
     public static final String TargetIp = "192.168.2.119";//10.42.0.1  目标IP地址   192.168.2.107  117  192.168.5.100

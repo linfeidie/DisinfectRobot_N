@@ -57,10 +57,10 @@ public class HeartbeatManager3 {
 
                 @Override
                 public void onSuccess(GetHanxinStatusEntity entity) {
-                    if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
+                    if (entity.getCode() == Contanst.REQUEST_OK_0){
                         EventBus.getDefault().post(entity);
                     }else{
-                        onFailure(entity.getErrmsg());
+                        onFailure(entity.getMessage());
                     }
 
                 }

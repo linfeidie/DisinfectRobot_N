@@ -2,7 +2,7 @@ package com.linfd.scri.disinfectrobot.entity;
 /*
 * 登录返回
 * */
-public class BitoLoginEntity extends BaseEntity2{
+public class BitoLoginEntity extends BaseEntity{
 
     /**
      * code : 200

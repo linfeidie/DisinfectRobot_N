@@ -1,29 +1,30 @@
 package com.linfd.scri.disinfectrobot.entity;
-
+/*\
+*
+* */
 public class BaseEntity {
 
     /**
-     * errmsg : Start_OK
-     * errno : 0
-     * 测试一下
+     * code : 200
+     * message : success
      */
 
-    private String errmsg;
-    private String errno;
+    private int code;
+    private String message;
 
-    public String getErrmsg() {
-        return errmsg;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrmsg(String errmsg) {
-        this.errmsg = errmsg;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getErrno() {
-        return errno;
+    public String getMessage() {
+        return message;
     }
 
-    public void setErrno(String errno) {
-        this.errno = errno;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

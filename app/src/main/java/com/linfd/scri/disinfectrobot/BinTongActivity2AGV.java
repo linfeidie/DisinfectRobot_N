@@ -900,7 +900,7 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
     public void onReceiveMsg(GetRobotPerformTaskEntity entity) {
 
         //返回正确且有值
-        if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && entity.getData().getTasks().size() != 0){
+        if (entity.getCode() == Contanst.REQUEST_OK_0 && entity.getData().getTasks().size() != 0){
             Log.e(TAG, BitoActionStateManager.obtainState(entity.getData().getTasks().get(0).getStatus()));
             tv_get_robot_perform_task.setText("当前任务:"+BitoActionStateManager.obtainState(entity.getData().getTasks().get(0).getStatus()));
             if (entity.getData().getTasks().get(0).getGoal_action() == 10){//10代表充电
