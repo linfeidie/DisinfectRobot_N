@@ -5,7 +5,7 @@ public class BaseEntity {
     /**
      * errmsg : Start_OK
      * errno : 0
-     * fix
+     * 测试一下
      */
 
     private String errmsg;
