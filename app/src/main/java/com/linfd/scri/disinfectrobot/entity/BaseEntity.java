@@ -11,6 +11,7 @@ public class BaseEntity {
 
     private int code;
     private String message;
+    private String msg;
 
     public int getCode() {
         return code;
@@ -26,5 +27,13 @@ public class BaseEntity {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

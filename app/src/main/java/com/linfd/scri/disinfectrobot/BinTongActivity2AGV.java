@@ -930,15 +930,16 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
      * */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onReceiveMsg(GetErrorCodeResultEntity entity) {
-        if (entity.hanxins.size() == 0){
-            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-        }
-        entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanX(entity.charges));
-        if (entity.hanxins.size() == 0){
+//        if (entity.hanxins.size() == 0){
+//            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+//        }
+        entity.charges.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+        if (entity.charges.size() == 0){
             tv_exception.setVisibility(View.INVISIBLE);
         }else {
             tv_exception.setVisibility(View.VISIBLE);
         }
+
         //Log.e(TAG,entity.charges.get(0).getError_mode());
 //        //充电桩的
 //        List<GetErrorCodeEntity.InfoBean.ChargingStationBean.Cj02Bean.EnBean> zhCnBeanXES = new ArrayList<>();//过滤掉重复的

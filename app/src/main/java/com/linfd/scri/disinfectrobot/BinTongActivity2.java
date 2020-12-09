@@ -943,11 +943,11 @@ public class BinTongActivity2 extends  BaseActivity   implements  BaseHandlerCal
      * */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onReceiveMsg(GetErrorCodeResultEntity entity) {
-        if (entity.hanxins.size() == 0){
-            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-        }
-        entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanX(entity.charges));
-        if (entity.hanxins.size() == 0){
+//        if (entity.hanxins.size() == 0){
+//            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+//        }
+        entity.charges.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+        if (entity.charges.size() == 0){
             tv_exception.setVisibility(View.INVISIBLE);
         }else {
             tv_exception.setVisibility(View.VISIBLE);

@@ -252,7 +252,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_alignParentRight="true"
         app:isShowIndicator="true"
         app:itemView="@layout/my_item_view"

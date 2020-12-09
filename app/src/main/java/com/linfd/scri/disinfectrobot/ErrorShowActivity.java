@@ -68,10 +68,10 @@ public class ErrorShowActivity extends BaseActivity {
         /*
         * 因为韩信和愚公不知道哪个有值 如果韩信为0，那加入愚公
         * */
-        if (entity.hanxins.size() == 0){
-            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-        }
-        entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanX(entity.charges));
+//        if (entity.hanxins.size() == 0){
+//            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+//        }
+        //entity.charges.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
 
        // tv_charging_station.setText(zhCnBeanXES.toString());
         //韩信  可以恢复的异常
@@ -88,14 +88,14 @@ public class ErrorShowActivity extends BaseActivity {
 //            }
 //      //      sb_hanxin.append(zhCnBeanHXSY.get(i).getError_mode()).append(",");
 //        }
-        if (entity.hanxins.size() == 0){
+        if (entity.charges.size() == 0){
             rv_show_err.setVisibility(View.GONE);
             ll_title.setVisibility(View.GONE);
         }else {
             rv_show_err.setVisibility(View.VISIBLE);
             ll_title.setVisibility(View.VISIBLE);
         }
-        errorAdapter = new ErrorAdapter(this, entity.hanxins, R.layout.item_error);
+        errorAdapter = new ErrorAdapter(this, entity.charges, R.layout.item_error);
         if (errorAdapter != null){
             rv_show_err.setAdapter(errorAdapter);
         }
