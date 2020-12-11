@@ -19,6 +19,8 @@ public class Contanst {
 
     public static final String bitoAPI = bitoIP + "api/v1/";
 
+    public static final String bitoAPIv2 = bitoIP + "api/v2/";
+
     public static final String bitoTask = bitoAPI + "task/";
 
     public static final String bitoAuth = bitoAPI + "auth/";
@@ -26,6 +28,8 @@ public class Contanst {
     public static final String bitoMonitor = bitoAPI + "monitor/";
 
     public static final String bitoRobot = bitoAPI + "robot/";
+
+    public static final String bitoSystem = bitoAPIv2 + "system/";
 
     public static final String api_get_task_status = bitoTask + "get_task_status/";
 
@@ -80,6 +84,8 @@ public class Contanst {
     public static final String api_add_task = bitoTask + "add_task";//添加任务
 
     public static final String api_solve_error_code = bitoMonitor + "solve_error_code?id=";//修改错误信息状态
+
+    public static final String api_dtc_codes = bitoSystem + "dtc_codes";
 
     public static final String REQUEST_OK = "0";
 
@@ -234,6 +240,8 @@ public class Contanst {
     public static final String KEY_SHOW01 = "show01"; //页面跳转  要主界面显示暂停和停止按钮
 
     public static final String exception_codes = "exception_codes";
+
+
 
     public static  String KEY_HASHISTORY_POINTS ;//是否有历史保存
 

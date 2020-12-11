@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.linfd.scri.disinfectrobot.entity.DesinStateCallbackEntity;
+import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.entity.ExceptionCodesCallbackEntity;
 import com.linfd.scri.disinfectrobot.entity.ExceptionEntity;
 import com.linfd.scri.disinfectrobot.entity.GetChargingStatusEntity;
@@ -929,54 +930,8 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
      * 接收异常信息的
      * */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onReceiveMsg(GetErrorCodeResultEntity entity) {
-//        if (entity.hanxins.size() == 0){
-//            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-//        }
-        entity.charges.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-        if (entity.charges.size() == 0){
-            tv_exception.setVisibility(View.INVISIBLE);
-        }else {
-            tv_exception.setVisibility(View.VISIBLE);
-        }
-
-        //Log.e(TAG,entity.charges.get(0).getError_mode());
-//        //充电桩的
-//        List<GetErrorCodeEntity.InfoBean.ChargingStationBean.Cj02Bean.EnBean> zhCnBeanXES = new ArrayList<>();//过滤掉重复的
-//        for (int i = 0; i < entity.charges.size(); i++) {
-//            if (!zhCnBeanXES.contains(entity.charges.get(i))){//如果不包含就加入
-//                zhCnBeanXES.add( entity.charges.get(i));
-//            }
-//        }
-//        //韩信  可以恢复的异常
-//        List<GetErrorCodeEntity.InfoBean.HanxinBean.Yg00a00020071211000n00Bean.ZhCnBeanX> zhCnBeanHXSY = new ArrayList<>();
-//        //不可恢复的
-//        List<GetErrorCodeEntity.InfoBean.HanxinBean.Yg00a00020071211000n00Bean.ZhCnBeanX> zhCnBeanHXSN = new ArrayList<>();
-//        for (int i = 0; i < entity.hanxins.size(); i++) {
-//
-//            //如果是可以恢复的  否则是不可以恢复的
-//            if(entity.hanxins.get(i).getSelf_recoverable().equals("Y")){
-//                zhCnBeanHXSY.add(entity.hanxins.get(i));
-//            }else if(entity.hanxins.get(i).getSelf_recoverable().equals("N")){
-//                zhCnBeanHXSN.add(entity.hanxins.get(i));
-//            }
-//        }
-//
-//        //愚公 可以恢复
-//        List<GetErrorCodeEntity.InfoBean.YugongBean.Yg00a00020071211000n00BeanX.ZhCnBeanXX> zhCnBeanYGY = new ArrayList<>();
-//        //愚公 不可以恢复
-//        List<GetErrorCodeEntity.InfoBean.YugongBean.Yg00a00020071211000n00BeanX.ZhCnBeanXX> zhCnBeanYGN = new ArrayList<>();
-//        for (int i = 0; i < entity.yugongs.size(); i++) {
-//
-//            //如果是可以恢复的  否则是不可以恢复的
-//            if(entity.yugongs.get(i).getSelf_recoverable().equals("Y")){
-//                zhCnBeanYGY.add(entity.yugongs.get(i));
-//            }else if(entity.yugongs.get(i).getSelf_recoverable().equals("N")){
-//                zhCnBeanYGN.add(entity.yugongs.get(i));
-//            }
-//        }
-
-
+    public void onReceiveMsg(DtcCodesEntity entity) {
+        Log.e(TAG,entity.getData().toString());
 
     }
 

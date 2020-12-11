@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.linfd.scri.disinfectrobot.adapter.ErrorAdapter;
+import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.entity.GetErrorCodeEntity;
 import com.linfd.scri.disinfectrobot.entity.GetErrorCodeResultEntity;
 import com.linfd.scri.disinfectrobot.manager.HeartbeatManager5;
@@ -59,43 +60,16 @@ public class ErrorShowActivity extends BaseActivity {
      * 接收异常信息的
      * */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onReceiveMsg(GetErrorCodeResultEntity entity) {
-       // Log.e(TAG,entity.charges.get(0).getError_mode());
-        //entity.charges
-//        if (entity.hanxins == null){
-//
-//        }
-        /*
-        * 因为韩信和愚公不知道哪个有值 如果韩信为0，那加入愚公
-        * */
-//        if (entity.hanxins.size() == 0){
-//            entity.hanxins.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
-//        }
-        //entity.charges.addAll(GetErrorCodeEntity.EnBeanToZhCnBeanXX(entity.yugongs));
+    public void onReceiveMsg(DtcCodesEntity entity) {
 
-       // tv_charging_station.setText(zhCnBeanXES.toString());
-        //韩信  可以恢复的异常
-        //List<GetErrorCodeEntity.InfoBean.HanxinBean.Yg00a00020071211000n00Bean.ZhCnBeanX> zhCnBeanHXSY = new ArrayList<>();
-        //不可恢复的
-       // List<GetErrorCodeEntity.InfoBean.HanxinBean.Yg00a00020071211000n00Bean.ZhCnBeanX> zhCnBeanHXSN = new ArrayList<>();
-//        for (int i = 0; i < entity.hanxins.size(); i++) {
-//
-//            //如果是可以恢复的  否则是不可以恢复的
-//            if (entity.hanxins.get(i).getSelf_recoverable().equalsIgnoreCase("Y")) {
-//                zhCnBeanHXSY.add(entity.hanxins.get(i));
-//            } else if (entity.hanxins.get(i).getSelf_recoverable().equalsIgnoreCase("N")) {
-//                zhCnBeanHXSN.add(entity.hanxins.get(i));
-//            }
-//      //      sb_hanxin.append(zhCnBeanHXSY.get(i).getError_mode()).append(",");
-//        }
-        if (entity.charges.size() == 0){
+        if (entity.getData().getCount() == 0){
             rv_show_err.setVisibility(View.GONE);
             ll_title.setVisibility(View.GONE);
         }else {
             rv_show_err.setVisibility(View.VISIBLE);
             ll_title.setVisibility(View.VISIBLE);
         }
-        errorAdapter = new ErrorAdapter(this, entity.charges, R.layout.item_error);
+        errorAdapter = new ErrorAdapter(this, entity.getData().getList(), R.layout.item_error);
         if (errorAdapter != null){
             rv_show_err.setAdapter(errorAdapter);
         }

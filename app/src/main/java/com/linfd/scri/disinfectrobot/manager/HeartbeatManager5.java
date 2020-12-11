@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import com.linfd.scri.disinfectrobot.BaseApplication;
 import com.linfd.scri.disinfectrobot.Contanst;
+import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.entity.GetErrorCodeResultEntity;
 import com.linfd.scri.disinfectrobot.entity.GetRobotPerformTaskEntity;
 import com.linfd.scri.disinfectrobot.listener.SimpleHttpCallbackEntity;
@@ -57,13 +58,19 @@ public class HeartbeatManager5 {
         public void run() {
             //韩信开启才轮询
             if (Contanst.status_hanxin == 1){
-                HttpRequestManager.getInstance().get_error_code(new SimpleHttpCallbackEntity<GetErrorCodeResultEntity>() {
-
+//                HttpRequestManager.getInstance().get_error_code(new SimpleHttpCallbackEntity<GetErrorCodeResultEntity>() {
+//
+//                    @Override
+//                    public void onSuccess(GetErrorCodeResultEntity entity) {
+//                        EventBus.getDefault().post(entity);
+//                    }
+//
+//                });
+                BitoAPIManager.getInstance().dtc_codes(new SimpleHttpCallbackEntity<DtcCodesEntity>() {
                     @Override
-                    public void onSuccess(GetErrorCodeResultEntity entity) {
-                        EventBus.getDefault().post(entity);
+                    public void onSuccess(DtcCodesEntity dtcCodesEntity) {
+                        EventBus.getDefault().post(dtcCodesEntity);
                     }
-
                 });
             }
 

@@ -1,6 +1,7 @@
 package com.linfd.scri.disinfectrobot.manager;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -12,6 +13,7 @@ import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersisto
 import com.google.gson.Gson;
 import com.linfd.scri.disinfectrobot.BaseApplication;
 import com.linfd.scri.disinfectrobot.Contanst;
+import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.tools.Tools;
 import com.linfd.scri.disinfectrobot.entity.AddTaskEntity;
 import com.linfd.scri.disinfectrobot.entity.BaseEntity;
@@ -341,7 +343,7 @@ public class HttpRequestManager {
     }
 
     /*
-     *查询所有故障信息
+     *查询所有故障信息  估计要废弃了
      * */
 
     public <T> void get_error_code(final HttpCallbackEntity<T> httpCallbackEntity) {
@@ -922,6 +924,41 @@ public class HttpRequestManager {
                     public void onSuccess(int statusCode, SolveErrorCodeEntity response) {
 
                         httpCallbackEntity.onSuccess((T) response);
+                    }
+                });
+    }
+
+    /*
+    * system - 查询dtc codes
+     * */
+    public <T> void dtc_codes( final HttpCallbackEntity<T> httpCallbackEntity) {
+
+        String url = Contanst.api_dtc_codes;
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> orderMap = new HashMap<>();
+        map.put("page", 1);
+        map.put("limit", 20);
+        map.put("language","zh_cn");
+        map.put("self_recover",false);
+        orderMap.put("column","id");
+        orderMap.put("order","desc");
+        map.put("order",orderMap);
+
+        mMyOkHttp.post()
+                .url(url)
+                .tag(this).jsonParams(gson.toJson(map))
+                .enqueue(new GsonResponseHandler<DtcCodesEntity>() {
+
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+                        httpCallbackEntity.onFailure(error_msg);
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, DtcCodesEntity response) {
+                        Log.e(TAG,response.toString());
+                        httpCallbackEntity.onSuccess((T) response);
+
                     }
                 });
     }

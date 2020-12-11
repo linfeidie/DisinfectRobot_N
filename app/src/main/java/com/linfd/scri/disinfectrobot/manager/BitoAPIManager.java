@@ -1,6 +1,7 @@
 package com.linfd.scri.disinfectrobot.manager;
 
 import com.linfd.scri.disinfectrobot.Contanst;
+import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.tools.Tools;
 import com.linfd.scri.disinfectrobot.entity.AddTaskEntity;
 import com.linfd.scri.disinfectrobot.entity.BaseEntity;
@@ -639,6 +640,19 @@ public class BitoAPIManager {
                }else{
                    onFailure(entity.getMessage());
                }
+           }
+       });
+   }
+
+   /*
+   * 查询dtc codes
+    * */
+   public void dtc_codes(final SimpleHttpCallbackEntity<DtcCodesEntity> simpleHttpCallbackEntity){
+       HttpRequestManager.getInstance().dtc_codes(new SimpleHttpCallbackEntity<DtcCodesEntity>() {
+
+           @Override
+           public void onSuccess(DtcCodesEntity dtcCodesEntity) {
+               simpleHttpCallbackEntity.onSuccess(dtcCodesEntity);
            }
        });
    }
