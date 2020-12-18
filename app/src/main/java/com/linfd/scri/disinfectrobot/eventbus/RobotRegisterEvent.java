@@ -1,12 +1,16 @@
 package com.linfd.scri.disinfectrobot.eventbus;
 
+import com.linfd.scri.disinfectrobot.entity.RobotRegisterEntity;
+
 /*
 * 机器是否注册监听
 * */
 public class RobotRegisterEvent {
+
     public int status ;//0 注册成功  ，1 注册失败 ,2 注销成功 ，3注销失败\
 
-    public String getStatus() {
+    public String getStatus()
+    {
         String des = "";
         if (status == 0){
             des = "已注册";//注册成功
@@ -21,4 +25,5 @@ public class RobotRegisterEvent {
         }
         return des;
     }
+
 }

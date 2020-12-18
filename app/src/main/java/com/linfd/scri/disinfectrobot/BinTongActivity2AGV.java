@@ -18,6 +18,7 @@ import com.linfd.scri.disinfectrobot.entity.DesinStateCallbackEntity;
 import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
 import com.linfd.scri.disinfectrobot.entity.ExceptionCodesCallbackEntity;
 import com.linfd.scri.disinfectrobot.entity.ExceptionEntity;
+import com.linfd.scri.disinfectrobot.entity.GetAgentsRegisterableEntity;
 import com.linfd.scri.disinfectrobot.entity.GetChargingStatusEntity;
 import com.linfd.scri.disinfectrobot.entity.GetErrorCodeEntity;
 import com.linfd.scri.disinfectrobot.entity.GetErrorCodeResultEntity;
@@ -27,6 +28,7 @@ import com.linfd.scri.disinfectrobot.entity.RobotStatusCallbackEntity;
 import com.linfd.scri.disinfectrobot.entity.TasksEntity;
 import com.linfd.scri.disinfectrobot.eventbus.EventPoint;
 import com.linfd.scri.disinfectrobot.eventbus.RobotRegisterEvent;
+import com.linfd.scri.disinfectrobot.listener.SimpleHttpCallbackEntity;
 import com.linfd.scri.disinfectrobot.manager.AckListenerService;
 import com.linfd.scri.disinfectrobot.manager.BitoAPIManager;
 import com.linfd.scri.disinfectrobot.manager.BitoActionStateManager;
@@ -99,7 +101,7 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
         switch_button = findViewById(R.id.switch_button);
         tv_get_hanxin_status = findViewById(R.id.tv_get_hanxin_status);
         tv_get_robot_perform_task = findViewById(R.id.tv_get_robot_perform_task);
-        tv_robot_register = findViewById(R.id.tv_robot_register);
+        tv_robot_register = findViewById(R.id.tv_robot_register);//注册
         tv_robot_mode = findViewById(R.id.tv_robot_mode);
         tv_pre_tasks = findViewById(R.id.tv_pre_tasks);
         tv_current_time = findViewById(R.id.tv_current_time);
@@ -246,6 +248,12 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
                                 dialog.dismiss();
                             }
                         });
+                        break;
+                    case 13://注册
+                       BitoAPIManager.getInstance().get_agents_registerable();
+                        break;
+                    case 14://反注册
+                        BitoAPIManager.getInstance().robot_unregister();
                         break;
                    case 15://控制
                        Tools.showToast("控制");
@@ -788,8 +796,8 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
         mList.add(new MyIconModel("定位",R.drawable.icon_loaction));
         mList.add(new MyIconModel("保存建图",R.drawable.icon_map_finish));
         mList.add(new MyIconModel("清除故障",R.drawable.icon_reset_agents));
-        mList.add(new MyIconModel("",R.drawable.icon_transparent));
-        mList.add(new MyIconModel("",R.drawable.icon_transparent));
+        mList.add(new MyIconModel("连接机器人",R.drawable.icon_registered));
+        mList.add(new MyIconModel("断开机器人",R.drawable.icon_unregistered));
 
 
         mList.add(new MyIconModel("控制",R.drawable.icon_control));
@@ -901,13 +909,13 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
     public void onReceiveMsg(GetRobotPerformTaskEntity entity) {
 
         //返回正确且有值
-        if (entity.getCode() == Contanst.REQUEST_OK_0 && entity.getData().getTasks().size() != 0){
+        if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && entity.getData().getTasks().size() != 0){
             Log.e(TAG, BitoActionStateManager.obtainState(entity.getData().getTasks().get(0).getStatus()));
             tv_get_robot_perform_task.setText("当前任务:"+BitoActionStateManager.obtainState(entity.getData().getTasks().get(0).getStatus()));
             if (entity.getData().getTasks().get(0).getGoal_action() == 10){//10代表充电
                 Contanst.isCurrentChargeTask = true;
             }else{
-                tv_get_robot_perform_task.setText("当前任务:"+"无");
+               // tv_get_robot_perform_task.setText("当前任务:"+"无");
                 Contanst.isCurrentChargeTask = false;
             }
 

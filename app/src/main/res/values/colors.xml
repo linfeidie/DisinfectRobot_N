@@ -10,4 +10,5 @@
     <color name="lowerPowerColor">#ff4d4d</color>
     <color name="onlineColor">#00d68d</color>
     <color name="offlineColor">#bfbfbf</color>
+    <color name="erroActive">#FFDD55</color>
 </resources>

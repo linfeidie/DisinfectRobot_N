@@ -2,6 +2,7 @@ package com.linfd.scri.disinfectrobot.manager;
 
 import com.linfd.scri.disinfectrobot.Contanst;
 import com.linfd.scri.disinfectrobot.entity.DtcCodesEntity;
+import com.linfd.scri.disinfectrobot.tools.RobotRegisterTost;
 import com.linfd.scri.disinfectrobot.tools.Tools;
 import com.linfd.scri.disinfectrobot.entity.AddTaskEntity;
 import com.linfd.scri.disinfectrobot.entity.BaseEntity;
@@ -28,6 +29,7 @@ import java.util.List;
 
 /*
 * 封装了宾通方法
+* 有宠还原了基类
 * */
 public class BitoAPIManager {
 
@@ -35,6 +37,8 @@ public class BitoAPIManager {
 
     private int disinTaskId = -1;
     private int chargeTaskId = -1 ;
+
+
 
     public static BitoAPIManager getInstance(){
 
@@ -48,7 +52,6 @@ public class BitoAPIManager {
         }
         return instance;
     }
-
     /*
      * 启动韩信
      * */
@@ -73,19 +76,19 @@ public class BitoAPIManager {
      * /*
      * 查询所有在线机器⼈是否可注册
      * */
-    private void get_agents_registerable() {
+    public void get_agents_registerable() {
         HttpRequestManager.getInstance().get_agents_registerable(new SimpleHttpCallbackEntity<GetAgentsRegisterableEntity>() {
 
             @Override
             public void onSuccess(GetAgentsRegisterableEntity entity) {
                 // 健壮性
-                if (entity.getCode() == Contanst.REQUEST_OK_0 && entity.getData().getAgents().size() != 0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK ) && entity.getData().getAgents().size() != 0){
                     //赋值
                     Contanst.ROBOT_SERIAL = entity.getData().getAgents().get(0).getSerial();
                     //Tools.showToast(entity.getData().getAgents().get(0).getSerial());
                     robot_register();//
                 }else {
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
 
             }
@@ -106,7 +109,7 @@ public class BitoAPIManager {
                     //拿第一个
                     Contanst.CHARGING_STATION_SERIAL = entity.getData().get(0).getCharging_station_serial();
                 }else {
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getMsg());
                 }
             }
 
@@ -126,6 +129,7 @@ public class BitoAPIManager {
                 }else{
                     onFailure(entity.getMessage());
                     event.status = 1;
+                    RobotRegisterTost.show(entity);//有异常
                 }
                 EventBus.getDefault().post(event);
             }
@@ -144,7 +148,7 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(PauseRobotEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     List<Integer> condition = new ArrayList<>();
                     condition.add(1);
                     condition.add(0);
@@ -152,7 +156,7 @@ public class BitoAPIManager {
                         @Override
                         public void onSuccess(TasksEntity tasksEntity) {
                             //有任务的情况
-                            if (tasksEntity.getCode() == Contanst.REQUEST_OK_0 && tasksEntity.getData().getTasks().size() != 0){
+                            if (tasksEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && tasksEntity.getData().getTasks().size() != 0){
                                 List<Integer> id_list = new ArrayList<>();
 
                                 for (int i = 0; i < tasksEntity.getData().getTasks().size(); i++) {
@@ -161,17 +165,17 @@ public class BitoAPIManager {
                                 HttpRequestManager.getInstance().cancel_tasks(id_list, new SimpleHttpCallbackEntity<CancelTasksEntity>() {
                                     @Override
                                     public void onSuccess(CancelTasksEntity entity) {
-                                        if (entity.getCode() == Contanst.REQUEST_OK_0){
+                                        if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                                             stop_hanxin_real();
                                         }else{
-                                            onFailure(entity.getMessage());
+                                            onFailure(entity.getErrmsg());
                                         }
                                     }
 
 
                                 });
                                 //没任务的情况
-                            }else if(tasksEntity.getCode() == Contanst.REQUEST_OK_0 && tasksEntity.getData().getTasks().size() == 0){
+                            }else if(tasksEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && tasksEntity.getData().getTasks().size() == 0){
                                 stop_hanxin_real();
                             }
 
@@ -179,7 +183,7 @@ public class BitoAPIManager {
                         }
                     });
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -213,7 +217,7 @@ public class BitoAPIManager {
             @Override
             public void onSuccess(final GetAllTasksEntity entity) {
                 //健壮性
-                if (entity.getCode() == Contanst.REQUEST_OK_0 && entity.getData().getTasks().size() != 0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && entity.getData().getTasks().size() != 0){
                     List<GetAllTasksEntity.DataBean.TasksBean> tasksBeans = entity.getData().getTasks();
                     for (int i = 0; i < tasksBeans.size(); i++) {
                         if (tasksBeans.get(i).getGoal_action() == 0){
@@ -224,16 +228,16 @@ public class BitoAPIManager {
                     HttpRequestManager.getInstance().repeat_tasks(disinTaskId, new SimpleHttpCallbackEntity<BaseEntity>() {
 
                         @Override
-                        public void onSuccess(BaseEntity entity) {
-                            if (entity.getCode() == Contanst.REQUEST_OK_0){
+                        public void onSuccess(BaseEntity baseEntity) {
+                            if (baseEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                                 Tools.showToast("重复任务成功");
                             }else {
-                                onFailure(entity.getMessage());
+                                onFailure(baseEntity.getErrmsg());
                             }
                         }
                     });
                 }else {
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -279,11 +283,11 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(PauseRobotEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
 
                     Tools.showToast("暂停机器人");
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -296,10 +300,10 @@ public class BitoAPIManager {
         HttpRequestManager.getInstance().resume_robot(new SimpleHttpCallbackEntity<ResumeRobotEntity>() {
             @Override
             public void onSuccess(ResumeRobotEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     Tools.showToast("恢复机器人");
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -318,10 +322,10 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(CancelTasksEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     Tools.showToast("取消成功");
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -375,7 +379,7 @@ public class BitoAPIManager {
             @Override
             public void onSuccess(GetAllTasksEntity entity) {
                 //代码健壮性
-                if (entity.getCode() == Contanst.REQUEST_OK_0 && entity.getData().getTasks().size() != 0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && entity.getData().getTasks().size() != 0){
                     List<GetAllTasksEntity.DataBean.TasksBean> tasksBeans = entity.getData().getTasks();
 
                     for (int i = 0; i < tasksBeans.size(); i++) {
@@ -387,18 +391,18 @@ public class BitoAPIManager {
                     HttpRequestManager.getInstance().repeat_tasks(chargeTaskId, new SimpleHttpCallbackEntity<BaseEntity>() {
 
                         @Override
-                        public void onSuccess(BaseEntity entity) {
+                        public void onSuccess(BaseEntity baseEntity) {
                             //健壮性
-                            if (entity.getCode() == Contanst.REQUEST_OK_0){
+                            if (baseEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                                 Tools.showToast("充电");
                             }else{
-                                onFailure(entity.getMessage());
+                                onFailure(baseEntity.getErrmsg());
                             }
                         }
 
                     });
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -431,14 +435,14 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(GetRobotPerformTaskEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     if (entity.getData() != null && entity.getData().getTasks().size() != 0) {
                         cancel_task_by_id(entity.getData().getTasks().get(0).getId());//获得id
                     }else if (entity.getData() != null && entity.getData().getTasks().size() == 0){
                         Tools.showToast("当前没有任务");
                     }
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
         });
@@ -456,10 +460,10 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(CancelTasksEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     Tools.showToast("取消成功");
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
 
@@ -473,10 +477,10 @@ public class BitoAPIManager {
 
             @Override
             public void onSuccess(CancelTasksEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     Tools.showToast("取消成功");
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
             }
 
@@ -490,12 +494,12 @@ public class BitoAPIManager {
         HttpRequestManager.getInstance().reset_agents(new SimpleHttpCallbackEntity<BaseEntity>() {
 
             @Override
-            public void onSuccess(BaseEntity entity) {
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+            public void onSuccess(BaseEntity baseEntity) {
+                if (baseEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     //Tools.showToast("重置成功");
                     robot_unregister();//再注销
                 }else{
-                    onFailure(entity.getMessage());
+                    onFailure(baseEntity.getErrmsg());
                 }
             }
 
@@ -525,12 +529,13 @@ public class BitoAPIManager {
             @Override
             public void onSuccess(RobotUnregisterEntity entity) {
                 RobotRegisterEvent event = new RobotRegisterEvent();
-                if (entity.getCode() == Contanst.REQUEST_OK_0){
+                if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     event.status = 2;
+                    Contanst.ROBOT_SERIAL = "";
                     Tools.showToast("注销成功");
                 }else{
                     event.status = 3;
-                    onFailure(entity.getMessage());
+                    onFailure(entity.getErrmsg());
                 }
                 EventBus.getDefault().post(event);
             }
@@ -603,7 +608,7 @@ public class BitoAPIManager {
 
            @Override
            public void onSuccess(PauseRobotEntity entity) {
-               if (entity.getCode() == Contanst.REQUEST_OK_0){
+               if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                    List<Integer> condition = new ArrayList<>();
                    condition.add(1);
                    condition.add(0);
@@ -611,7 +616,7 @@ public class BitoAPIManager {
                        @Override
                        public void onSuccess(TasksEntity tasksEntity) {
                            //有任务的情况
-                           if (tasksEntity.getCode() == Contanst.REQUEST_OK_0 && tasksEntity.getData().getTasks().size() != 0){
+                           if (tasksEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && tasksEntity.getData().getTasks().size() != 0){
                                List<Integer> id_list = new ArrayList<>();
 
                                for (int i = 0; i < tasksEntity.getData().getTasks().size(); i++) {
@@ -620,17 +625,17 @@ public class BitoAPIManager {
                                HttpRequestManager.getInstance().cancel_tasks(id_list, new SimpleHttpCallbackEntity<CancelTasksEntity>() {
                                    @Override
                                    public void onSuccess(CancelTasksEntity entity) {
-                                       if (entity.getCode() == Contanst.REQUEST_OK_0){
+                                       if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                                            cancel_task_current();
                                        }else{
-                                           onFailure(entity.getMessage());
+                                           onFailure(entity.getErrmsg());
                                        }
                                    }
 
 
                                });
                                //没任务的情况
-                           }else if(tasksEntity.getCode() == Contanst.REQUEST_OK_0 && tasksEntity.getData().getTasks().size() == 0){
+                           }else if(tasksEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && tasksEntity.getData().getTasks().size() == 0){
                                cancel_task_current();
                            }
 
@@ -638,7 +643,7 @@ public class BitoAPIManager {
                        }
                    });
                }else{
-                   onFailure(entity.getMessage());
+                   onFailure(entity.getErrmsg());
                }
            }
        });

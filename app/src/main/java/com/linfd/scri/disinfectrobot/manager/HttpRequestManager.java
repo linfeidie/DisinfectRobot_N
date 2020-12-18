@@ -679,7 +679,7 @@ public class HttpRequestManager {
     public <T> void resume_robot(final HttpCallbackEntity<T> httpCallbackEntity) {
 
         if (TextUtils.isEmpty(Contanst.ROBOT_SERIAL)) {
-            Tools.showToast("机器未注册，请启动系统");
+            Tools.showToast("机器未注册");
             return;
         }
 
@@ -939,7 +939,7 @@ public class HttpRequestManager {
         map.put("page", 1);
         map.put("limit", 20);
         map.put("language","zh_cn");
-        map.put("self_recover",false);
+        map.put("status","active");
         orderMap.put("column","id");
         orderMap.put("order","desc");
         map.put("order",orderMap);

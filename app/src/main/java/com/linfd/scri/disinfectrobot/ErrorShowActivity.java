@@ -24,8 +24,6 @@ import java.util.List;
 public class ErrorShowActivity extends BaseActivity {
 
     public static final String TAG = ErrorShowActivity.class.getSimpleName();
-    private TextView tv_yugong;
-    private StringBuilder sb_hanxin ;
     private RecyclerView rv_show_err;
     private ErrorAdapter errorAdapter;
     private LinearLayout ll_title;
@@ -70,6 +68,7 @@ public class ErrorShowActivity extends BaseActivity {
             ll_title.setVisibility(View.VISIBLE);
         }
         errorAdapter = new ErrorAdapter(this, entity.getData().getList(), R.layout.item_error);
+
         if (errorAdapter != null){
             rv_show_err.setAdapter(errorAdapter);
         }
