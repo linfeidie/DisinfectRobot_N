@@ -195,7 +195,7 @@ public class BinTongActivity2AGV extends  BaseActivity   implements  BaseHandler
                             return;
                         }
                        // BitoAPIManager.getInstance().cancel_task_walk();
-                        mDialogHelper.showConfirmDialog("取消消毒", new OnDialogConfirmListener() {
+                        mDialogHelper.showConfirmDialog("取消行走", new OnDialogConfirmListener() {
                             @Override
                             public void onDialogConfirmListener(AlertDialog dialog) {
                                 BitoAPIManager.getInstance().cancle_walk();//

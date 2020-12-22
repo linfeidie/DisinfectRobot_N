@@ -29,7 +29,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 
         //启动APP
         if (intent.getAction().equals(ACTION)) {
-            Intent intent2 = new Intent(context, BinTongActivity2.class);  // 要启动的Activity
+            Intent intent2 = new Intent(context, BinTongActivity2AGV.class);  // 要启动的Activity
             if (!(context instanceof Activity)) {
                 //如果不是在Activity中显示Activity，必须要设置FLAG_ACTIVITY_NEW_TASK标志
                 intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

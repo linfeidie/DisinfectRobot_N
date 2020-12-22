@@ -19,15 +19,15 @@ public class RobotRegisterEntity extends BaseEntity {
      * data : {"angle":-0.004202,"node_id":25,"x":1.014389,"y":-0.009913}
      */
 
-    private DataBean data;
+    //private DataBean data;
 
-    public DataBean getData() {
-        return data;
-    }
-
-    public void setData(DataBean data) {
-        this.data = data;
-    }
+//    public DataBean getData() {
+//        return data;
+//    }
+//
+//    public void setData(DataBean data) {
+//        this.data = data;
+//    }
 
     public static class DataBean {
         /**

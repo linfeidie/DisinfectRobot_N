@@ -9,13 +9,13 @@ public class Contanst {
     //192.168.5.130  轻载 192.168.2.119(轻载无线)
     public static  String map_time ; //192.168.1.101（1009） 连接网线  "127.0.0.1"  192.168.2.103 是网络地址  10.42.0.1
     //1.0是有线网段
-    public static final String TargetIp = "192.168.2.119";//10.42.0.1  目标IP地址   192.168.2.107  117  192.168.5.100
+    public static final String TargetIp = "192.168.5.130";//10.42.0.1  目标IP地址   192.168.2.107  117  192.168.5.100
 
     public static final int TargetPort = 8999; //目标端口8999 8080
 
     public static final int LocalPort = 8989 ;//本地端口
 
-    public static final String bitoIP = "http://192.168.2.119:9999/";//宾通的IP  http://192.168.2.108:9999/(无线)
+    public static final String bitoIP = "http://192.168.5.130:9999/";//宾通的IP  http://192.168.2.108:9999/(无线)
 
     public static final String bitoAPI = bitoIP + "api/v1/";
 
