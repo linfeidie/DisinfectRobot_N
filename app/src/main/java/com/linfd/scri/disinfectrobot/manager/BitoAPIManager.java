@@ -150,6 +150,8 @@ public class BitoAPIManager {
             public void onSuccess(PauseRobotEntity entity) {
                 if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
                     List<Integer> condition = new ArrayList<>();
+                    /*0=新建，待处理（此状态任务可任意修改）；已分配，待执行；2=执行中；
+                    * */
                     condition.add(1);
                     condition.add(0);
                     HttpRequestManager.getInstance().tasks(condition, new SimpleHttpCallbackEntity<TasksEntity>() {
@@ -166,7 +168,9 @@ public class BitoAPIManager {
                                     @Override
                                     public void onSuccess(CancelTasksEntity entity) {
                                         if (entity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK)){
-                                            stop_hanxin_real();
+                                            //去A2
+                                            BitoAPIManager.getInstance().add_task_walk();
+                                            //stop_hanxin_real();
                                         }else{
                                             onFailure(entity.getErrmsg());
                                         }
@@ -176,7 +180,9 @@ public class BitoAPIManager {
                                 });
                                 //没任务的情况
                             }else if(tasksEntity.getErrno().equalsIgnoreCase(Contanst.REQUEST_OK) && tasksEntity.getData().getTasks().size() == 0){
-                                stop_hanxin_real();
+                                //去A2
+                                BitoAPIManager.getInstance().add_task_walk();
+                                //stop_hanxin_real();
                             }
 
 

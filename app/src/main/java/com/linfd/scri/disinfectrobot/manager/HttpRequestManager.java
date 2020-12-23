@@ -106,13 +106,11 @@ public class HttpRequestManager {
      * 查询任务运⾏状态 - 根据任务id
      * */
     public <T> void get_task_status(int id, final HttpCallbackEntity<T> httpCallbackEntity) {
-        String url = Contanst.api_get_task_status + id;
 
+        String url = Contanst.api_get_task_status + id;
 
         mMyOkHttp.get()
                 .url(url)
-//                        .addParam("name", "tsy")
-//                        .addParam("id", "5")
                 .tag(this)
                 .enqueue(new GsonResponseHandler<TaskStatusEntity>() {
 
