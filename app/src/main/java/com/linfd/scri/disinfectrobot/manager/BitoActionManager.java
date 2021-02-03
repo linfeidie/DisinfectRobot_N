@@ -21,8 +21,8 @@ public class BitoActionManager {
         actionMap.put(8,"原地下降");
         actionMap.put(9,"工作举升");
         actionMap.put(10,"充电");
-        actionMap.put(11,"向后退举升");
-        actionMap.put(12,"向后退下降");
+        actionMap.put(11,"取货");// 向后退举升   zj替换的
+        actionMap.put(12,"放货");// 向后退下降    zj替换的
         actionMap.put(13,"向前充电");
         actionMap.put(14,"工作下降");
         actionMap.put(15,"回收货架");
@@ -32,5 +32,8 @@ public class BitoActionManager {
         actionMap.put(19,"向右平移后下降");
         actionMap.put(20,"向右平移后举升");
         actionMap.put(21,"向右平移后下降");
+    }
+    public static String obtainState(int state){
+        return actionMap.get(state);
     }
 }

@@ -505,7 +505,7 @@ public class UdpControlSendManager {
     }
 
     /*
-    * 锁轴
+    * 锁轴 切换到set_manual_ctrl了
     * */
     public void close_shaft(){
         this.set_base_cmd(Contanst.id,Contanst.to_id,0,0,1);

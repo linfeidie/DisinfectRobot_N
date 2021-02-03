@@ -46,7 +46,7 @@ public class GetRobotPerformTaskEntity extends BaseEntity{
             this.tasks = tasks;
         }
 
-        public static class TasksBean {
+        public static class  TasksBean {
             /**
              * actual_time : 2020-10-22 14:05:20
              * assignment : yg00a00020071211000n00

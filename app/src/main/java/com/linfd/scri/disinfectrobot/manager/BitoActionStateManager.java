@@ -8,7 +8,7 @@ import java.util.Map;
 public class BitoActionStateManager {
     private static Map<Integer,String> stateMap = new HashMap<>();
     static {
-        //搞错了
+
         stateMap.put(0,"待处理");//已创建
         stateMap.put(1,"待执行");//已预定
         stateMap.put(2,"执行中");
